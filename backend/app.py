@@ -29,29 +29,14 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 # Initialize Flask app
 app = Flask(__name__)
 
-# CORS configuration - H-001 fix: restrict origins
-frontend_url = os.getenv('FRONTEND_URL')
-allowed_origins = []
-
-if frontend_url:
-    allowed_origins.append(frontend_url)
-
-# Only add localhost for development
-is_development = os.getenv('FLASK_ENV') == 'development' or os.getenv('FLASK_DEBUG') == '1'
-if is_development:
-    allowed_origins.extend(["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:5000"])
-
-if allowed_origins:
-    CORS(app, resources={
-        r"/api/*": {
-            "origins": allowed_origins,
-            "methods": ["GET", "POST", "OPTIONS"],
-            "allow_headers": ["Content-Type"]
-        }
-    })
-else:
-    # No CORS if FRONTEND_URL not configured
-    CORS(app, resources={r"/api/*": {"origins": []}})
+# CORS configuration — allow Vercel frontend
+CORS(app, resources={
+    r"/api/*": {
+        "origins": "*",
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type"]
+    }
+})
 
 # Rate limiting - M-003 fix
 limiter = Limiter(

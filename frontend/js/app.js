@@ -12,8 +12,9 @@ const API_BASE = (
     window.location.hostname === '127.0.0.1' ||
     window.location.hostname === '' ||
     window.location.protocol === 'file:'
+)
     ? 'http://localhost:5000'
-    : 'https://skillmate-ai-3s2f.onrender.com'; // Update with your Render URL
+    : 'https://skillmate-ai-3s2f.onrender.com';
 
 // ============================================================
 // DOM Elements
