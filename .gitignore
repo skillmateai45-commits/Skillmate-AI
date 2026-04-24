@@ -1,0 +1,62 @@
+# ===========================
+# SkillMate AI — .gitignore
+# ===========================
+
+# ---------- Environment & Secrets ----------
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+*.egg
+dist/
+build/
+venv/
+env/
+.venv/
+.eggs/
+*.whl
+pip-log.txt
+
+# ---------- Node ----------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ---------- Audio / Media Cache ----------
+backend/audio_cache/*.mp3
+backend/audio_cache/*.wav
+
+# ---------- Temp / Generated Scripts ----------
+backend/setup_db.py
+
+# ---------- IDE ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+Icon?
+
+# ---------- Deployment ----------
+.vercel/
+.render/
+
+# ---------- Agent / Skills (local dev tooling) ----------
+.agent/
+.gemini/

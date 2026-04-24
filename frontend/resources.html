@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources — SkillMate AI</title>
+    <meta name="description" content="Explore curated learning resources for programming, AI/ML, web development, cloud computing, and more — powered by SkillMate AI.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-mesh"></div>
+    <div class="bg-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="navbar-brand">
+            <div class="logo-icon">
+                <img src="assets/logo.png" alt="SkillMate AI Logo" class="logo-img logo-dark">
+                <img src="assets/logo-light.png" alt="SkillMate AI Logo" class="logo-img logo-light">
+            </div>
+            <span>SkillMate AI</span>
+        </a>
+        <div class="nav-right">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+            <ul class="navbar-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resources.html" class="active">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode" title="Toggle theme">
+                <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Resources Page -->
+    <main class="resources-page">
+        <div class="resources-hero">
+            <div class="hero-badge resources-hero-badge">
+                <span class="dot"></span>
+                Curated Learning Resources
+            </div>
+            <h1 class="resources-hero-title">
+                Resource Library
+            </h1>
+            <p class="resources-hero-desc">
+                Browse documentation, YouTube tutorials, and Wikipedia articles for 25+ skills
+            </p>
+        </div>
+
+        <!-- Search -->
+        <div class="search-bar">
+            <span class="search-icon">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search skills... (e.g., Python, Machine Learning, React)"
+                aria-label="Search skills"
+            >
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="skills-grid" id="skillsGrid">
+            <!-- Populated by JS -->
+        </div>
+
+        <!-- Expanded Skill Detail -->
+        <div id="skillDetail" class="skill-detail">
+            <div class="glass-card skill-detail-card">
+                <button id="btnBackToGrid" class="btn-new skill-detail-back">
+                    <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                    Back to all skills
+                </button>
+                <h2 id="detailSkillName" class="skill-detail-title"></h2>
+                <p id="detailSkillCategory" class="skill-detail-category"></p>
+                <div id="detailResources"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>
+            SkillMate AI — An AI-Powered Multilingual Framework for Skill Education<br>
+            <a href="index.html">Try it Now</a> · <a href="about.html">About Us</a>
+        </p>
+    </footer>
+
+    <!-- Theme toggle + Navbar toggle + Resources JS -->
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('skillmate-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('skillmate-theme', next);
+        });
+
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+    </script>
+    <script src="js/resources.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: skillmate-ai-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: FRONTEND_URL
+        sync: false
+      - key: APPWRITE_ENDPOINT
+        sync: false
+      - key: APPWRITE_PROJECT_ID
+        sync: false
+      - key: APPWRITE_API_KEY
+        sync: false
+      - key: APPWRITE_DATABASE_ID
+        value: skillmate_db
+      - key: APPWRITE_COLLECTION_ID
+        value: interactions
