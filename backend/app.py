@@ -311,7 +311,7 @@ def process_input():
         return jsonify({
             'success': False,
             'error_id': error_id,
-            'message': 'An error occurred processing your request. Please try again.'
+            'message': f'Error: {str(e)}'
         }), 500
 
 
