@@ -62,9 +62,8 @@ const API_BASE = (
     window.location.hostname === '127.0.0.1' ||
     window.location.hostname === '' ||
     window.location.protocol === 'file:'
-)
     ? 'http://localhost:5000'
-    : 'https://skillmate-ai-backend.onrender.com';
+    : 'https://skillmate-ai-3s2f.onrender.com';
 
 // ============================================================
 // Render Skills Grid
